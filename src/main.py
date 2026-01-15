@@ -1,6 +1,5 @@
 import subprocess
 is_error_exc = False
-typex = False
 def subprocess_run_pipeline(cmd):
     global is_error_exc
     if isinstance(cmd, list):
@@ -8,8 +7,6 @@ def subprocess_run_pipeline(cmd):
     try:
         process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, shell=True)
         stdout, stderr = process.communicate()
-        #if typex:
-            #print(stdout)
         if stderr:
             is_error_exc = True
             print(stderr)
@@ -19,7 +16,6 @@ def subprocess_run_pipeline(cmd):
     return stdout
 
 def main():
-    typex = True
     print("----------------MANAGE USERS AND GROUPS----------------" "\n" "USERS:" "\n" + subprocess_run_pipeline(["cat /etc/passwd | grep -Ev 'nologin|false' | cut -d: -f1"]) + "\n" + "GROUPS:"+ subprocess_run_pipeline(["cat /etc/group | cut -d: -f1"]) +"\n" + "OPTIONS:" +"\n" + "%A for all users" + "\n" + "%U for new user" + "\n" + "%G for new group" + "\n" +"%B for adding multiple users to a group" "\n"+"%Q to exit" +"\n"+"------------------------------------------------------"+"\n")
     cc= input("$: ").upper()
     if cc == "%Q":
