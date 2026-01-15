@@ -17,7 +17,7 @@ userthingwierd2= input("Enter Users to add to group (comma separated): ")
 subprocess_run_pipeline(["useradd", userthingwierd2, "-G", groupthingwierd]) 
 fifipasswd=input("Enter password for user: ")
 subprocess_run_pipeline(["passwd", userthingwierd2, fifipasswd])
-subprocess_run_pipeline(["sudo usermod -aGe", groupthingwierd, userthingwierd2])
+subprocess_run_pipeline(["sudo, usermod, -aGe", groupthingwierd, userthingwierd2])
 filethingy= userthingwierd2
 subprocess_run_pipeline(["sudo mkdir /", filethingy])
 subprocess_run_pipeline(["sudo chown", userthingwierd2, filethingy])
